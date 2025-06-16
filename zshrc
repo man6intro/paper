@@ -179,6 +179,10 @@ iscmd() {
     command -v "$1" > /dev/null
 }
 
+installnix(){
+    sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+}
+
 # {{{ plugins
 
 # enable command-not-found if installed
