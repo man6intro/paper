@@ -20,6 +20,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'mbbill/undotree'
 Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
@@ -44,6 +45,19 @@ nmap <leader>h :History<cr>
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+if has("persistent_undo")
+	let target_path = expand('~/.vim/undodir')
+	" create the directory and any parent directories
+	" if the location does not exist.
+	if !isdirectory(target_path)
+		call mkdir(target_path, "p", 0700)
+	endif
+	let &undodir=target_path
+	set undofile
+endif
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " }}}
 
 " {{{ set

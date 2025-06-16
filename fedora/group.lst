@@ -1,0 +1,26 @@
+Updating and loading repositories:
+Repositories loaded.
+ID                        Name                             Installed
+input-methods             Input Methods                          yes
+virtualization            Virtualization                         yes
+standard                  Standard                               yes
+printing                  Printing Support                       yes
+networkmanager-submodules Common NetworkManager Submodules       yes
+multimedia                Multimedia                             yes
+libreoffice               LibreOffice                            yes
+kde-spin-initial-setup    KDE Spin Initial Setup                 yes
+kde-pim                   KDE PIM                                yes
+kde-media                 KDE Multimedia support                 yes
+kde-desktop               KDE                                    yes
+kde-apps                  KDE Applications                       yes
+admin-tools               Administration Tools                   yes
+hardware-support          Hardware Support                       yes
+guest-desktop-agents      Guest Desktop Agents                   yes
+fonts                     Fonts                                  yes
+firefox                   Firefox Web Browser                    yes
+dial-up                   Dial-up Networking Support             yes
+development-tools         Development Tools                      yes
+desktop-accessibility     Desktop accessibility                  yes
+core                      Core                                   yes
+base-graphical            base-graphical                         yes
+anaconda-tools            Anaconda tools                         yes

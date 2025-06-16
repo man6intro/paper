@@ -265,6 +265,7 @@ minicom-0:2.9-4.fc42.x86_64
 mpage-0:2.5.7-22.fc42.x86_64
 mt7xxx-firmware-0:20250509-1.fc42.noarch
 mtr-2:0.95-12.fc42.x86_64
+ncdu-0:2.8.2-1.fc42.x86_64
 ncurses-0:6.5-5.20250125.fc42.x86_64
 neochat-0:25.04.2-1.fc42.x86_64
 net-tools-0:2.0-0.73.20160912git.fc42.x86_64
