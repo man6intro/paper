@@ -141,9 +141,11 @@ alias bctl='bluetoothctl' \
     rctl='sudo resolvectl' \
     sueh='sudo -EH' \
     sue='sudo -E' \
-    logpackage="dnf repoquery --userinstalled"\
-    sefd='setfont -d' \
-    sefontdebian='setfont /usr/share/consolefonts/Lat15-Terminus32x16.psf.gz'
+    sefd='setfont -d'
+
+alias logpackage="dnf repoquery --userinstalled"\
+    setfontdebian='setfont /usr/share/consolefonts/Lat15-Terminus32x16.psf.gz'\
+    setfontfedora='setfont /usr/lib/kbd/consolefonts/Lat2-Terminus16.psfu.gz -d'
 
 if (( $+commands[udisksctl] )); then
     alias ud='udisksctl'
