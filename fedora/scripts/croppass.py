@@ -47,8 +47,8 @@ def process_images_recursive(input_dir, output_dir):
     for dirpath, dirnames, filenames in os.walk(input_dir):
         dirpath_abs = os.path.abspath(dirpath)
 
-        # Skip the output directory and its children
-        if dirpath_abs.startswith(output_dir_abs):
+        # Skip the output directory and all its subdirectories
+        if os.path.commonpath([dirpath_abs, output_dir_abs]) == output_dir_abs:
             continue
 
         for filename in filenames:
@@ -65,6 +65,6 @@ def process_images_recursive(input_dir, output_dir):
 
 
 if __name__ == "__main__":
-    input_directory = "."  # current working directory
-    output_directory = "cropped_subject_original_bg"
+    input_directory = os.getcwd()  # current working directory
+    output_directory = os.path.join(input_directory, "cropped_subject_original_bg")
     process_images_recursive(input_directory, output_directory)

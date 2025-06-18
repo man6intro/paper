@@ -1,7 +1,7 @@
 Updating and loading repositories:
 Repositories loaded.
 ID                        Name                             Installed
-input-methods             Input Methods                          yes
+kde-apps                  KDE Applications                       yes
 virtualization            Virtualization                         yes
 standard                  Standard                               yes
 printing                  Printing Support                       yes
@@ -9,11 +9,12 @@ networkmanager-submodules Common NetworkManager Submodules       yes
 multimedia                Multimedia                             yes
 libreoffice               LibreOffice                            yes
 kde-spin-initial-setup    KDE Spin Initial Setup                 yes
+kde-software-development  KDE Software Development               yes
 kde-pim                   KDE PIM                                yes
 kde-media                 KDE Multimedia support                 yes
 kde-desktop               KDE                                    yes
-kde-apps                  KDE Applications                       yes
 admin-tools               Administration Tools                   yes
+input-methods             Input Methods                          yes
 hardware-support          Hardware Support                       yes
 guest-desktop-agents      Guest Desktop Agents                   yes
 fonts                     Fonts                                  yes
