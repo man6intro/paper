@@ -185,6 +185,10 @@ installnix(){
     sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 }
 
+pyupa(){
+    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+}
+
 # {{{ plugins
 
 # enable command-not-found if installed
