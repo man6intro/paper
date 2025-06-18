@@ -39,6 +39,7 @@ basesystem-0:11-22.fc42.noarch
 bash-0:5.2.37-1.fc42.x86_64
 bash-color-prompt-0:0.5-3.fc42.noarch
 bash-completion-1:2.16-1.fc42.noarch
+bat-0:0.25.0-2.fc42.x86_64
 bc-0:1.08.1-2.fc42.x86_64
 bind-utils-32:9.18.36-1.fc42.x86_64
 bluedevil-0:6.3.5-1.fc42.x86_64
@@ -98,6 +99,7 @@ efibootmgr-0:18-9.fc42.x86_64
 elisa-player-0:25.04.2-1.fc42.x86_64
 ethtool-2:6.14-2.fc42.x86_64
 exfatprogs-0:1.2.9-1.fc42.x86_64
+fd-find-0:10.2.0-3.fc42.x86_64
 fedora-bookmarks-0:28-32.fc42.noarch
 fedora-release-kde-0:42-26.noarch
 ffmpegthumbs-0:25.04.2-1.fc42.x86_64
@@ -336,6 +338,7 @@ qrca-0:25.04.2-1.fc42.x86_64
 quota-1:4.09-8.fc42.x86_64
 realmd-0:0.17.1-15.fc42.x86_64
 realtek-firmware-0:20250509-1.fc42.noarch
+ripgrep-0:14.1.1-2.fc42.x86_64
 rootfiles-0:8.1-38.fc42.noarch
 rpm-0:4.20.1-1.fc42.x86_64
 rsync-0:3.4.1-3.fc42.x86_64
