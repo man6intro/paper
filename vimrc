@@ -20,10 +20,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+"{{{ junegunn
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 colo seoul256
@@ -45,7 +49,16 @@ nmap <leader>h :History<cr>
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+"}}}
 
+"{{{ gitgutter
+set updatetime=100
+command! Gqf GitGutterQuickFix | copen
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+"}}}
+
+"{{{ undotree
 if has("persistent_undo")
 	let target_path = expand('~/.vim/undodir')
 	" create the directory and any parent directories
@@ -57,13 +70,19 @@ if has("persistent_undo")
 	set undofile
 endif
 nnoremap <leader>u :UndotreeToggle<CR>
+"}}}
 
+"{{{ airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" }}}
 " }}}
 
 " {{{ set
 if !has('gui_running') && &t_Co >= 256
 	set termguicolors
 end
+
 if exists('filetype')
 	filetype plugin indent on
 endif

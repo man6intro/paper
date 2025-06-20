@@ -1,3 +1,9 @@
+# Common swap and backup
+*.swp
+*~
+*.bak
+*.old
+
 # Ignore .venv
 .venv/
 

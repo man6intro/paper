@@ -8,8 +8,8 @@ local mux = wezterm.mux
 
 ---{{{ Maximize wezterm on startup
 wezterm.on("gui-startup", function()
-  local tab, pane, window = mux.spawn_window{}
-  window:gui_window():maximize()
+	local tab, pane, window = mux.spawn_window{}
+	window:gui_window():maximize()
 end)
 ---}}}
 
@@ -19,12 +19,13 @@ config.default_prog = { '/usr/bin/zsh' }
 --- }}}
 
 --- {{{ font
+config.warn_about_missing_glyphs=false
 config.font = wezterm.font_with_fallback {
 	{ family = 'Fira Code' },
-	{ family = 'Terminus' },
-	'Noto Color Emoji'
+	{ family = 'Symbols Nerd Font' },
+	'Noto Color Emoji',
 }
-config.font_size = 18
+config.font_size = 20
 --- }}}
 
 --- {{{ bar

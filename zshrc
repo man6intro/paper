@@ -169,6 +169,9 @@ if (( $+commands[xdg-open] )); then
 fi
 
 # stuffs
+
+setenv() { export $1=$2 }  # csh compatibility
+
 list_ips() {
     ip a show scope global | awk '/^[0-9]+:/ { sub(/:/,"",$2); iface=$2 } /^[[:space:]]*inet / { split($2, a, "/"); print "[\033[96m" iface"\033[0m] "a[1] }'
 }
@@ -186,7 +189,7 @@ installnix(){
 }
 
 installdistrobox(){
-    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/uninstall | sh -s -- --prefix ~/.local
+    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
 }
 
 pyupa(){
@@ -252,5 +255,14 @@ zinit load zdharma-continuum/history-search-multi-word
 # zinit light zsh-users/zsh-syntax-highlighting
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
+
+# }}}
+
+# {{{ lang
+
+# rust
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 # }}}
