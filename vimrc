@@ -25,6 +25,11 @@ Plug 'mbbill/undotree'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" lang
+Plug 'dense-analysis/ale'
+Plug 'psf/black', { 'branch': 'stable' }
+
 call plug#end()
 
 "{{{ junegunn
@@ -49,6 +54,14 @@ nmap <leader>h :History<cr>
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+augroup RainbowParentheses
+	autocmd!
+	autocmd FileType * RainbowParentheses
+augroup END
+
 "}}}
 
 "{{{ gitgutter
@@ -76,6 +89,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " }}}
+
 " }}}
 
 " {{{ set
@@ -117,6 +131,26 @@ set formatoptions+=jc
 set virtualedit+=block
 " }}}
 
+" {{{ fun
+
+function! ClearAllRegisters()
+	" Clear named registers: a-z
+	for r in range(char2nr('a'), char2nr('z'))
+		call setreg(nr2char(r), '')
+	endfor
+	" Clear common writable special registers
+	let regs = ['"', '/', '-', '*', '+', '#']
+	for r in regs
+		try
+			call setreg(r, '')
+		catch /^Vim\%((\a\+)\)\=:E/
+		endtry
+	endfor
+	echo "All writable registers cleared."
+endfunction
+
+" }}}
+
 " {{{ keymap
 nmap <leader>. :e.<cr>
 nnoremap ; :
@@ -124,6 +158,16 @@ inoremap jj <esc>
 vnoremap > >gv
 vnoremap < <gv
 nnoremap <silent> <c-s> :w<cr>
-nnoremap <silent> <c-q> :try \| tabclose \| catch \| qa \| endtry<cr>
+
+function! SmartQuit()
+	" More than one buffer open
+	if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
+		bdelete
+	else
+		qa
+	endif
+endfunction
+nnoremap <c-q> :call SmartQuit()<CR>
+
 nnoremap n nzz
 " }}}

@@ -260,6 +260,10 @@ zinit light zsh-users/zsh-autosuggestions
 
 # {{{ lang
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init - zsh)"
+
 # rust
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
