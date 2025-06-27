@@ -170,4 +170,8 @@ endfunction
 nnoremap <c-q> :call SmartQuit()<CR>
 
 nnoremap n nzz
+map j gj
+map k gk
+
 " }}}
+

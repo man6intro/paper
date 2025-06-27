@@ -4,7 +4,7 @@ from PIL import Image, ImageOps
 import numpy as np
 import os
 
-# Constants
+
 OUTPUT_DIR = "output_faces"
 TARGET_WIDTH_CM = 5
 TARGET_HEIGHT_CM = 7
@@ -12,10 +12,8 @@ DPI = 300
 TARGET_SIZE_PX = (int(TARGET_WIDTH_CM / 2.54 * DPI), int(TARGET_HEIGHT_CM / 2.54 * DPI))
 FACE_CASCADE_PATH = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 
-# Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Load OpenCV face detector
 face_cascade = cv2.CascadeClassifier(FACE_CASCADE_PATH)
 
 
@@ -89,7 +87,6 @@ def process_files(start_dir):
                 process_pdf_file(filepath, base_name)
 
 
-if __name__ == "__main__":
-    print("Scanning current directory and subdirectories for PDFs and images...")
-    process_files(os.getcwd())
-    print(f"Done! Cropped and formatted passport-style photos saved in '{OUTPUT_DIR}'.")
+print("Scanning current directory and subdirectories for PDFs and images...")
+process_files(os.getcwd())
+print(f"Done! Cropped and formatted passport-style photos saved in '{OUTPUT_DIR}'.")

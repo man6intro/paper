@@ -55,7 +55,6 @@ def copy_all_files_flat(src_dir, dump_dir):
                 print(f"Error copying {source_path}: {e}")
 
 
-if __name__ == "__main__":
-    src = input("Enter source folder path: ").strip()
-    dst = input("Enter dump folder path: ").strip()
-    copy_all_files_flat(src, dst)
+src = input("Enter source folder path: ").strip()
+dst = input("Enter dump folder path: ").strip()
+copy_all_files_flat(src, dst)
