@@ -33,7 +33,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+    zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # manually added !
 
@@ -192,8 +192,8 @@ installdistrobox(){
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
 }
 
-pyupa(){
-    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+pippurge(){
+    pip uninstall -y -r <(pip freeze)
 }
 
 # {{{ plugins
@@ -205,6 +205,15 @@ fi
 
 if iscmd fzf; then
     eval "$(fzf --zsh)"
+    export FZF_DEFAULT_COMMAND='fd --type f'
+    # Preview file content using bat (https://github.com/sharkdp/bat)
+    export FZF_CTRL_T_OPTS="
+    --preview '~/.vim/plugged/fzf/bin/fzf-preview.sh {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+fi
+
+if iscmd eza; then
+    alias ls="eza --git"
 fi
 
 if iscmd zoxide; then
