@@ -1,0 +1,16 @@
+dotfiles/fedora/scripts py v3.13.3
+❯ tree
+.
+├── flatten_copy_with_autoname.py --> ini nge-dump file yang nested kyk foo/bar/baz/file.txt ke directory baru /foo/file.txt
+├── fonts.sh --> fonts pribadi
+├── format_this_dir.sh --> black formatter
+├── huntfaceonnx.py --> cari foto di passport abis itu crop (onnxruntime/rembg)
+├── huntface.py --> cari foto di passport abis itu crop (opencv)
+├── pdf2jpgs.py --> split pdf ke jpg
+├── pdfjpgmerge.py --> merge semua pdf jpeg png yang ada di directory `buat merge vaksin yang dikumpulin random` biasanya jpg atau pdf biar bisa di print langsung
+├── pdfmerge1stpage.py --> merge semua halaman pertama dari pdf `untuk print ticket`
+├── pdfmerge.py --> merge semua pdf
+├── pngs2jpgs.py --> ubah semua png ke jpeg
+├── requirements.txt --> cara update `pip-compile --upgrade requirements.txt`
+├── whitebg.py --> ganti background dari seluruh png/jpg di directory dengan background putih
+└── rewriteexif.py --> ganti tanggal foto dibuat **butuh installasi exiftool**

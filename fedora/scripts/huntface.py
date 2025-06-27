@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import cv2
 import fitz  # PyMuPDF
 from PIL import Image, ImageOps
