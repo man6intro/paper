@@ -159,15 +159,15 @@ vnoremap > >gv
 vnoremap < <gv
 nnoremap <silent> <c-s> :w<cr>
 
-function! SmartQuit()
+function! Bufquit()
 	" More than one buffer open
 	if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
 		bdelete
 	else
-		qa
+		quit
 	endif
 endfunction
-nnoremap <c-q> :call SmartQuit()<CR>
+nnoremap <c-q> :call Bufquit()<CR>
 
 nnoremap n nzz
 map j gj
