@@ -23,6 +23,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -83,6 +84,10 @@ if has("persistent_undo")
 	set undofile
 endif
 nnoremap <leader>u :UndotreeToggle<CR>
+"}}}
+
+"{{{ which-key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 "}}}
 
 "{{{ airline
@@ -152,15 +157,15 @@ function! ClearAllRegisters()
 	echo "All writable registers cleared."
 endfunction
 
-func! CompileRun()
+function! CompileRun()
 	exec "w"
 	if &filetype == 'python'
 		exec "!time python %"
 	elseif &filetype == 'sh'
 		exec "!time /usr/bin/env sh %"
 	endif
-endfunc
-command CR call CompileRun()
+endfunction
+command C call CompileRun()
 
 " }}}
 
