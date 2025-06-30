@@ -1,11 +1,10 @@
+.gitignore
+
 # Common swap and backup
 *.swp
 *~
 *.bak
 *.old
-
-# Ignore .venv
-venv/
 
 # Ignore build outputs from performing a nix-build or `nix build` command
 result
