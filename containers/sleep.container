@@ -1,0 +1,4 @@
+[Container]
+Image=registry.fedoraproject.org/fedora:latest
+Exec=sleep infinity
+AutoUpdate=registry
