@@ -121,6 +121,7 @@ set lazyredraw
 set splitright
 set splitbelow
 set foldmethod=marker
+set cmdheight=2
 
 set ignorecase
 set autoread
@@ -129,6 +130,8 @@ set modeline
 set nowrap
 set formatoptions+=jc
 set virtualedit+=block
+set whichwrap+=<,>,h,l
+
 " }}}
 
 " {{{ fun
@@ -149,6 +152,16 @@ function! ClearAllRegisters()
 	echo "All writable registers cleared."
 endfunction
 
+func! CompileRun()
+	exec "w"
+	if &filetype == 'python'
+		exec "!time python %"
+	elseif &filetype == 'sh'
+		exec "!time /usr/bin/env sh %"
+	endif
+endfunc
+command CR call CompileRun()
+
 " }}}
 
 " {{{ keymap
@@ -167,7 +180,7 @@ function! Bufquit()
 		quit
 	endif
 endfunction
-nnoremap <c-q> :call Bufquit()<CR>
+nnoremap <c-q> :silent! call Bufquit()<CR>
 
 nnoremap n nzz
 map j gj
