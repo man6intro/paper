@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import fitz  # PyMuPDF
 from pathlib import Path
