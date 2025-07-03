@@ -213,7 +213,7 @@ if iscmd fzf; then
 fi
 
 if iscmd eza; then
-    alias ls="eza --git"
+    alias ls="eza --git --icons"
 fi
 
 if iscmd zoxide; then

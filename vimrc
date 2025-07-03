@@ -185,7 +185,7 @@ function! Bufquit()
 		quit
 	endif
 endfunction
-nnoremap <c-q> :silent! call Bufquit()<CR>
+nnoremap <c-q> :call Bufquit()<CR>
 
 nnoremap n nzz
 map j gj

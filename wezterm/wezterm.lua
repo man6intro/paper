@@ -32,7 +32,7 @@ config.font_size = 20
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.window_frame = {
-	font = wezterm.font { family = 'Fira Code', weight = 'Bold' },
+	font = wezterm.font { family = 'Fira Code' },
 	font_size = 9.0,
 	active_titlebar_bg = '#000000',
 	inactive_titlebar_bg = '#000000',
@@ -52,7 +52,6 @@ config.colors = {
 		inactive_tab_hover = {
 			bg_color = '#000000',
 			fg_color = '#ffffff',
-			intensity = 'Bold',
 		},
 		new_tab = {
 			bg_color = '#000000',
@@ -61,7 +60,6 @@ config.colors = {
 		new_tab_hover = {
 			bg_color = '#000000',
 			fg_color = '#ffffff',
-			intensity = 'Bold',
 		},
 	},
 }
