@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """
 flatten_copy_with_autoname.py
 
@@ -34,7 +33,7 @@ def generate_unique_name(dump_dir, original_name):
 
 
 def copy_all_files_flat(src_dir, dump_dir):
-    """copy all files to dump_dir"""
+    """copy all files to dump_dir without duplicating"""
     src_dir = Path(src_dir).resolve()
     dump_dir = Path(dump_dir).resolve()
 
@@ -44,10 +43,19 @@ def copy_all_files_flat(src_dir, dump_dir):
 
     dump_dir.mkdir(parents=True, exist_ok=True)
 
+    seen_files = set()
+
     for root, _, files in os.walk(src_dir):
         for file_name in files:
             source_path = Path(root) / file_name
-            target_path = generate_unique_name(dump_dir, Path(file_name))
+            real_source_path = source_path.resolve()
+
+            # Skip if we've already copied this file (real path match)
+            if real_source_path in seen_files:
+                continue
+            seen_files.add(real_source_path)
+
+            target_path = generate_unique_name(dump_dir, source_path.name)
 
             try:
                 shutil.copy2(source_path, target_path)
