@@ -21,6 +21,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'mbbill/undotree'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'liuchengxu/vim-which-key'
@@ -110,6 +111,13 @@ if has('syntax') && !exists('g:syntax_on')
 	syntax on
 endif
 
+if has("gui_running")
+	set guifont=Iosevka\ 16
+elseif has("gui_win32")
+	set guifont=Consolas:h14:cANSI
+endif
+set guioptions=
+
 " {{{ beep
 set noerrorbells
 set novisualbell
@@ -128,6 +136,7 @@ set splitbelow
 set foldmethod=marker
 set cmdheight=2
 
+set noswapfile
 set ignorecase
 set autoread
 " set nomodeline
