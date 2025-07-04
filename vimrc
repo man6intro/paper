@@ -150,6 +150,13 @@ set whichwrap+=<,>,h,l
 
 " {{{ fun
 
+function! TrimWhitespace()
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
+endfunction
+command TW call TrimWhitespace()
+
 function! ClearAllRegisters()
 	" Clear named registers: a-z
 	for r in range(char2nr('a'), char2nr('z'))
@@ -165,6 +172,7 @@ function! ClearAllRegisters()
 	endfor
 	echo "All writable registers cleared."
 endfunction
+command CAR call ClearAllRegisters()
 
 function! CompileRun()
 	exec "w"
