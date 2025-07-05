@@ -169,7 +169,6 @@ if (( $+commands[xdg-open] )); then
 fi
 
 # stuffs
-
 setenv() { export $1=$2 }  # csh compatibility
 
 list_ips() {
@@ -177,7 +176,7 @@ list_ips() {
 }
 
 mkcd() {
-    mkdir $1 && cd $_
+    mkdir -p $1 && cd $_
 }
 
 iscmd() {
@@ -192,6 +191,10 @@ installdistrobox(){
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
 }
 
+pipup (){
+    pip list --outdated --user | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip install -U
+}
+
 pippurge(){
     pip uninstall -y -r <(pip freeze)
 }
@@ -201,6 +204,10 @@ pippurge(){
 # enable command-not-found if installed
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
+fi
+
+if iscmd warp-cli; then
+    eval "$(warp-cli generate-completions zsh)"
 fi
 
 if iscmd fzf; then

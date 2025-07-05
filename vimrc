@@ -112,7 +112,8 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 
 if has("gui_running")
-	set guifont=Iosevka\ 16
+	set lines=999 columns=999
+	set guifont=Iosevka\ 18
 elseif has("gui_win32")
 	set guifont=Consolas:h14:cANSI
 endif
@@ -127,15 +128,19 @@ set t_vb=
 
 set number
 set laststatus=2
-set scrolloff=3
-set sidescrolloff=3
 set ttyfast
 set lazyredraw
 set splitright
 set splitbelow
 set foldmethod=marker
 set cmdheight=2
+set listchars=tab:<->,extends:>,precedes:<,eol:$,nbsp:%
+set list
+match ErrorMsg '\s\+$'
+let &showbreak = '+++ '
 
+set scrolloff=3
+set sidescrolloff=3
 set noswapfile
 set ignorecase
 set autoread
@@ -149,6 +154,8 @@ set whichwrap+=<,>,h,l
 " }}}
 
 " {{{ fun
+
+command Q quit
 
 function! TrimWhitespace()
 	let l:save = winsaveview()
