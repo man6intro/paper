@@ -88,11 +88,10 @@ def main(arg):
         pool.map(process_pdf, tasks)
 
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage:")
-        print("  python extract_pdf_page.py 'search string'")
-        print("  python extract_pdf_page.py search_terms.txt")
-        sys.exit(1)
+if len(sys.argv) < 2:
+    print("Usage:")
+    print("  python extract_pdf_page.py 'search string'")
+    print("  python extract_pdf_page.py search_terms.txt")
+    sys.exit(1)
 
-    main(sys.argv[1])
+main(sys.argv[1])
