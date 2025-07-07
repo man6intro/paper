@@ -1,0 +1,10 @@
+pymupdf
+pdfminer.six
+pypdf2
+onnxruntime
+rembg
+passporteye
+pytesseract
+tqdm
+pillow
+black

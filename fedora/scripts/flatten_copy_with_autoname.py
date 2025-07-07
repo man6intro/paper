@@ -45,7 +45,7 @@ def copy_all_files_flat(src_dir, dump_dir):
     # Warn if dump_dir is inside src_dir
     if dump_dir in src_dir.parents or dump_dir == src_dir:
         print(
-            "⚠️ Warning: dump directory is inside the source directory. Skipping it during traversal."
+            "Warning: dump directory is inside the source directory. Skipping it during traversal."
         )
 
     dump_dir.mkdir(parents=True, exist_ok=True)
@@ -72,11 +72,11 @@ def copy_all_files_flat(src_dir, dump_dir):
 
             try:
                 shutil.copy2(source_path, target_path)
-                print(f"✅ Copied: {source_path} -> {target_path.name}")
+                print(f"Copied: {source_path} -> {target_path.name}")
             except Exception as e:
-                print(f"❌ Error copying {source_path}: {e}")
+                print(f"Error copying {source_path}: {e}")
 
 
-src = input("📂 Enter source folder path: ").strip()
-dst = input("📁 Enter dump folder path: ").strip()
+src = input("Enter source folder path: ").strip()
+dst = input("Enter dump folder path: ").strip()
 copy_all_files_flat(src, dst)

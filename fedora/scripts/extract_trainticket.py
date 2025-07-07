@@ -26,4 +26,3 @@ for pdf_file in input_dir.glob("*.pdf"):
     print(f"Saved to {output_path.name}")
 
 print("Done.")
-

@@ -13,11 +13,11 @@ def extract_pages_with_string(search_str, output_dir="extracted_page"):
     pdf_files = [f for f in os.listdir(".") if f.lower().endswith(".pdf")]
 
     for pdf_file in pdf_files:
-        print(f"🔍 Scanning {pdf_file}...")
+        print(f"Scanning {pdf_file}...")
         try:
             reader = PdfReader(pdf_file)
         except Exception as e:
-            print(f"❌ Cannot open {pdf_file}: {e}")
+            print(f"Cannot open {pdf_file}: {e}")
             continue
 
         for page_number in range(len(reader.pages)):
@@ -25,7 +25,7 @@ def extract_pages_with_string(search_str, output_dir="extracted_page"):
             try:
                 text = extract_text(pdf_file, page_numbers=[page_number])
             except Exception as e:
-                print(f"❌ Cannot extract text from page {page_number+1}: {e}")
+                print(f"Cannot extract text from page {page_number+1}: {e}")
                 continue
 
             if text and search_str.lower() in text.lower():
@@ -39,13 +39,12 @@ def extract_pages_with_string(search_str, output_dir="extracted_page"):
                 with open(output_path, "wb") as f:
                     writer.write(f)
 
-                print(f"✅ Found and saved: {output_filename}")
+                print(f"Found and saved: {output_filename}")
 
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python extract_pdf_page.py <search_string>")
-        sys.exit(1)
+if len(sys.argv) < 2:
+    print("Usage: python extract_pdf_page.py <search_string>")
+    sys.exit(1)
 
-    search_string = sys.argv[1]
-    extract_pages_with_string(search_string)
+search_string = sys.argv[1]
+extract_pages_with_string(search_string)
